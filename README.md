@@ -8,7 +8,7 @@ delimited words on a single line.
 
     Flip	- flip two white-space delimited words
     Flip ,	- flip two items in a comma-delimited list 
-    Flip , )	- flip two parameters (nested parens are not handled)
+    Flip , )	- flip last two parameters (nested parens are not handled)
     Flip = ;	- flip two words delimited by '=' and ';' (c assignment)
     Flip = )	- flip two words delimited by '=' where the second 
   		  word ends with and includes ')'
