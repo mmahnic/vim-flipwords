@@ -3,10 +3,11 @@
 " License: GPL (http://www.gnu.org/copyleft/gpl.html)
 " This program comes with ABSOLUTELY NO WARRANTY.
 "
-if exists("g:loaded_flipwords") && g:loaded_flipwords
+let g:loadedPlug = get(g:, 'loadedPlug', {})
+if get(g:loadedPlug, 'flipwords', 0)
    finish
 endif
-let g:loaded_flipwords = 1
+let g:loadedPlug.flipwords = -1
 
 " Flip          - flip two white-space delimited words
 " Flip ,        - flip two items in a comma-delimited list 
@@ -17,3 +18,5 @@ let g:loaded_flipwords = 1
 " The first word starts at the current position.
 " Both words have to be on one line.
 command! -nargs=* Flip call flipwords#Flip(<f-args>)
+
+let g:loadedPlug.flipwords = 1
