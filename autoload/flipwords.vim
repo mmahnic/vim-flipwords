@@ -46,16 +46,14 @@ function! flipwords#Flip(...)
    endif
    "echom "BE " . string(posWBe)
 
+   let l = getline('.')
+   let pa = posStart[2] - 1
+   let pb = posWAe[2] - 1
+   let pc = posWBs[2] - 1
+   let pd = posWBe[2] - 1
+   call setline('.', l[:pa-1] . l[pc:pd-1] . l[pb:pc-1] . l[pa:pb-1] . l[pd:])
+   let delta = (pd-pc) - (pb-pa)
+   let posStart[2] = pc + delta + 1
    call setpos('.', posStart)
-   let rx = @x
-   exec 'norm ' . (posWAe[2] - posStart[2]) . '"xyl'
-   call setpos('.', posWBs)
-   let ry = @y
-   exec 'norm ' . '"xPl' . (posWBe[2] - posWBs[2]) . '"ydl'
-   call setpos('.', posStart)
-   exec 'norm ' . (posWAe[2] - posStart[2]) . '"xdl"yP'
-
-   let @x = rx
-   let @y = ry
 endfunc
 
