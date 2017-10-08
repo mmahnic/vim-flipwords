@@ -4,6 +4,21 @@
 " This program comes with ABSOLUTELY NO WARRANTY.
 "
 " See the the comments in the Flip command.
+
+function! s:Check(dict, path, setting, default)
+   let val = a:dict
+   for p in a:path
+      let val[p] = get(val, p, {})
+      let val = val[p]
+   endfor
+   let val[a:setting] = get(val, a:setting, a:default)
+   return val[a:setting]
+endfunc
+
+" move_cursor: nonzero if the cursor should move with the current word, zero
+" if the cursor should remain at the current position.
+call s:Check(g:, ['plug_flipwords'], 'move_cursor', 0)
+
 function! flipwords#Flip(...)
    let eolTerm = 1
    if a:0 == 0
@@ -53,7 +68,9 @@ function! flipwords#Flip(...)
    let pd = posWBe[2] - 1
    call setline('.', l[:pa-1] . l[pc:pd-1] . l[pb:pc-1] . l[pa:pb-1] . l[pd:])
    let delta = (pd-pc) - (pb-pa)
-   let posStart[2] = pc + delta + 1
+   if g:plug_flipwords.move_cursor != 0
+      let posStart[2] = pc + delta + 1
+   endif
    call setpos('.', posStart)
 endfunc
 

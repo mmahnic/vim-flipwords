@@ -1,10 +1,10 @@
 
-##Flipwords
+## Flipwords
 
 The plugin Flipwords provides the command Flip that changes the order of two 
 delimited words on a single line.
 
-##Examples
+## Examples
 
     Flip	- flip two white-space delimited words
     Flip ,	- flip two items in a comma-delimited list 

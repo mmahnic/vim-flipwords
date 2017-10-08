@@ -20,6 +20,24 @@ delimited words on a single line.
 			[end-delimiter] is not found on the line the end of 
 			line is used instead.
 
+Options: 						*flipword-options*
+
+To change an option add a |let| statement in your |vimrc|. First check that the 
+dictionary for flipword settings is created and then set the option in the 
+dictionary. Example: >
+    let g:plug_flipwords = get(g:, 'plug_flipwords', {})
+    let g:plug_flipwords.move_cursor = 1
+<
+
+OPTIONS AND DEFAULTS ~
+
+g:plug_flipwords.move_cursor = 0
+
+    0 : The cursor remains in the initial position after the words are flipped.
+
+    1 : The cursor moves with the current word.
+
+
 Examples:						*flipword-examples*
 >
   Flip			- flip two white-space delimited words
