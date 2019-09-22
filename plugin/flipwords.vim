@@ -4,11 +4,11 @@
 " This program comes with ABSOLUTELY NO WARRANTY.
 
 " Use VxLib plugin registration without loading VxLib
-let g:loadedPlugin = get(g:, 'loadedPlugin', {})
-if get(g:loadedPlugin, 'flipwords', 0)
+let g:loadedPlugins = get(g:, 'loadedPlugins', {})
+if get(g:loadedPlugins, 'flipwords', 0)
    finish
 endif
-let g:loadedPlugin['flipwords'] = 1
+let g:loadedPlugins['flipwords'] = 1
 
 " Flip          - flip two white-space delimited words
 " Flip ,        - flip two items in a comma-delimited list 
