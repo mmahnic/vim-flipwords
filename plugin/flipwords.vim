@@ -2,12 +2,13 @@
 " Created: April 2012
 " License: GPL (http://www.gnu.org/copyleft/gpl.html)
 " This program comes with ABSOLUTELY NO WARRANTY.
-"
-let g:loadedPlug = get(g:, 'loadedPlug', {})
-if get(g:loadedPlug, 'flipwords', 0)
+
+" Use VxLib plugin registration without loading VxLib
+let g:loadedPlugin = get(g:, 'loadedPlugin', {})
+if get(g:loadedPlugin, 'flipwords', 0)
    finish
 endif
-let g:loadedPlug.flipwords = -1
+let g:loadedPlugin['flipwords'] = 1
 
 " Flip          - flip two white-space delimited words
 " Flip ,        - flip two items in a comma-delimited list 
@@ -18,5 +19,3 @@ let g:loadedPlug.flipwords = -1
 " The first word starts at the current position.
 " Both words have to be on one line.
 command! -nargs=* Flip call flipwords#Flip(<f-args>)
-
-let g:loadedPlug.flipwords = 1

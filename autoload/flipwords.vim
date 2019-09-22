@@ -3,7 +3,14 @@
 " License: GPL (http://www.gnu.org/copyleft/gpl.html)
 " This program comes with ABSOLUTELY NO WARRANTY.
 "
-" See the the comments in the Flip command.
+" See the comments in the Flip command.
+
+" Use VxLib plugin registration without loading VxLib
+let g:loadedAutoload = get(g:, 'loadedAutoload', {})
+if get(g:loadedAutoload, '#flipwords', 0)
+   finish
+endif
+let g:loadedAutoload['#flipwords'] = 1
 
 function! s:Check(dict, path, setting, default)
    let val = a:dict
