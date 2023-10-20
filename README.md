@@ -6,12 +6,12 @@ delimited words on a single line.
 
 ## Examples
 
-    Flip       - flip two white-space delimited words
-    Flip ,     - flip two items in a comma-delimited list 
-    Flip , )   - flip last two parameters (nested parens are not handled)
-    Flip = ;   - flip two words delimited by '=' and ';' (c assignment)
-    Flip = )   - flip two words delimited by '=' where the second word
-                 ends with and includes ')'
+    Flip         - flip two white-space delimited words
+    Flip ,       - flip two items in a comma-delimited list 
+    Flip , )     - flip last two parameters (nested parens are not handled)
+    Flip = ;     - flip two words delimited by '=' and ';' (c assignment)
+    Flip = )\zs  - flip two words delimited by '=' where the second word
+                   ends with and includes ')'
 
 Some effects of the Flip command (the coursor is at the character following '|'):
 
